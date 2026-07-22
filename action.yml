@@ -1,0 +1,23 @@
+name: 'ship-n-eat'
+description: 'Order food via DoorDash to celebrate repo milestones'
+inputs:
+  dd-cli-token:
+    description: 'DoorDash CLI token JSON (alternative to email/password)'
+    required: false
+  dd-cli-email:
+    description: 'DoorDash account email (used with password for auto-refresh)'
+    required: false
+  dd-cli-password:
+    description: 'DoorDash account password'
+    required: false
+  config-path:
+    description: 'Path to config file'
+    required: false
+    default: '.github/ship-n-eat.yml'
+  dry-run:
+    description: 'Preview order without submitting'
+    required: false
+    default: 'false'
+runs:
+  using: 'node20'
+  main: 'src/index.js'

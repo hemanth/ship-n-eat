@@ -1,0 +1,27 @@
+name: Celebrate PR
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  celebrate:
+    name: Celebrate Merged PR
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run ship-n-eat Action
+        uses: ./
+        with:
+          dd-cli-token: ${{ secrets.DD_CLI_TOKEN }}
+          dd-cli-email: ${{ secrets.DD_CLI_EMAIL }}
+          dd-cli-password: ${{ secrets.DD_CLI_PASSWORD }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,15 @@
+{
+  "name": "ship-n-eat",
+  "version": "1.0.0",
+  "description": "A GitHub Action that orders food via DoorDash CLI to celebrate repo milestones.",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "@actions/core": "^1.10.1",
+    "@actions/github": "^6.0.0",
+    "js-yaml": "^4.1.0"
+  }
+}

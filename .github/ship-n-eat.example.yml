@@ -1,0 +1,50 @@
+# ship-n-eat configuration
+# Place this file at .github/ship-n-eat.yml in your repo
+
+restaurants:
+  - store_id: "12345"
+    name: "Pizza Place"
+    items: ["Large Cheese Pizza", "Garlic Bread"]
+    weight: 2
+  - store_id: "67890"
+    name: "Taco Joint"
+    random_items: 3
+    weight: 1
+
+selection: random       # random | round-robin | first
+dietary: all            # all | veg | vegan | gluten-free
+budget: 40              # max per order in USD
+dry_run: false          # set true to preview without ordering
+notify: true            # post GitHub comment
+
+occasions:
+  first_pr_merged:
+    enabled: true
+    message: "First PR merged by {author}! Ordering {restaurant} to celebrate."
+  pr_milestone:
+    enabled: true
+    counts: [10, 50, 100, 500, 1000]
+    message: "{count} PRs merged! Time to eat."
+  release:
+    enabled: true
+    message: "Release {tag} shipped! Ordering food."
+    budget: 60
+  major_release:
+    enabled: true
+    message: "Major release {tag}! Extra budget unlocked."
+    budget: 80
+  first_release:
+    enabled: true
+    message: "First release ever! This calls for food."
+  first_issue_closed:
+    enabled: true
+    message: "First issue closed by {author}! Snack time."
+  issue_milestone:
+    enabled: false
+    counts: [100, 500, 1000]
+  star_milestone:
+    enabled: false
+    counts: [100, 500, 1000, 5000]
+  custom_label:
+    enabled: false
+    label: celebrate
